@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-3">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.media }}  <!-- Подключает JS/CSS CKEditor -->
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-primary mt-2">Сохранить</button>
+    </form>
+</div>
+{% endblock content %}

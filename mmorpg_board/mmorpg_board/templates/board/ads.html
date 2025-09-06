@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% include 'board/paginator.html' %}
+    {% for i in ad %}
+        <div class="container-fluid">
+            <div class="card card-body border-dark border-2">
+                <div class="card-header bg-warning bg-opacity-25"> 
+                    <ul class="horizontal list-unstyled d-flex align-items-center gap-3">
+                        <li>
+                            {% if i.author == user %}                            
+                                <span class="fw-lighter text-bg-info">Моё объявление</span>
+                            {% endif %}
+                            <h5 class="mb-0">{{ i.title }}</h5>
+                        </li>
+                        <li class="ms-auto text-muted small me-3">
+                            <span class="fw-lighter">Категория</span>
+                            <span class="fst-italic">{{ i.get_category_display }} •</span> 
+                            Опубликовано <span class="fw-lighter">{{ i.created_at|date:"d.m.Y" }}</span>
+                        </li>
+                        <li>
+                            <a href="{% url 'ad_detail' pk=i.pk %}" class="btn btn-outline-primary fixed-btn-width">Подробнее</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card-text mt-2">{{ i.content|safe|truncatewords:15 }}</div>                
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-3">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Объявление добавлено успешно!</h4>
+        <p>Теперь оно отображается в списке объявлений.</p>
+        <hr>
+        <p class="mb-0">
+            <a href="{% url 'ad_list' %}" class="btn btn-primary">К списку объявлений</a>
+            <a href="{% url 'ad_create' %}" class="btn btn-outline-secondary ms-2">Создать еще</a>
+        </p>
+    </div>
+</div>
+{% endblock content %}

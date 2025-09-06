@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-3">
+    <h2>{% if is_update %}Редактирование объявления{% else %}Создание объявления{% endif %}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form|crispy }}
+        {{ form.media }}
+        <button type="submit" class="btn {% if is_update %}btn-secondary{% else %}btn-primary{% endif %}">
+            {% if is_update %}Сохранить{% else %}Создать{% endif %}
+        </button>
+    </form>
+</div>
+{% endblock content %}

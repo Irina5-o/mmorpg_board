@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <h2>Выход из системы</h2>
+            <p class="lead">Вы успешно вышли из своей учетной записи.</p>
+            <div class="mt-3">
+                <a href="{% url 'login' %}" class="btn btn-primary">Войти снова</a>
+                <a href="{% url 'ad_list' %}" class="btn btn-outline-secondary ms-2">На главную</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

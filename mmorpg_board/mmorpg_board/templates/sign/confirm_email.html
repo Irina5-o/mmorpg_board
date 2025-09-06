@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container mt-3">
+    <h4 class="mb-3">На Вашу почту был выслан код, который нужно ввести сюда в течение трех минут</h4>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success mt-2">Принять</button>
+    </form>
+</div>
+{% endblock content %}

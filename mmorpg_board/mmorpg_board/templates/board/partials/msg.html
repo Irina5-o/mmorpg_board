@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Новые объявления за неделю</title>
+</head>
+<body>
+    <h3>Уважаемый
+        {% if user.first_name %}
+            {{ user.first_name }}!
+        {% else %}
+            подписчик!
+        {% endif %}
+    </h3>
+    <p><strong>Список объявлений по Вашим категориям, вышедших за неделю:</strong></p>
+    {% for ad in ads %}
+        <p><a href="http://localhost:8000/board/ad/{{ ad.pk }}">{{ ad.title }}</a></p>
+    {% endfor %}
+    <br>
+    <p>С уважением,<br>Команда MMORPG Board</p>
+</body>
+</html>
